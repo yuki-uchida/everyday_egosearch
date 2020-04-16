@@ -4,7 +4,7 @@ make
 
 - settings.py and add config
 - make google spreadsheet and copy spreadsheet key
-  - https://docs.google.com/spreadsheets/d/<<SPREAD SHEET KEY IS HERE>>/edit#gid=0
+  - `https://docs.google.com/spreadsheets/d/<SPREAD SHEET KEY IS HERE>/edit#gid=0`
 - make GCP project and service account KEY
   - need activate GOOGLE Spread Sheet API
   - need activate GOOGLE Drive API
