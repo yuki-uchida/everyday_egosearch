@@ -21,4 +21,4 @@ SINCE_DATE = '2020-01-01'
 
 - `gcloud functions deploy <DEPLOY NAME1> --entry-point <EXECUTE FUNCTION NAME> --runtime python37 --trigger-http --allow-unauthenticated`
 - and copy Cloud functions url
-- beta scheduler jobs create http <DEPOLY NAME2> --schedule="0 2 \* \* \*" --uri="<CLOUD FUNCTIONS ENTRY POINT URI>" --headers Content-Type=application/json --time-zone=Asia/Tokyo --message-body='{}'
+- `beta scheduler jobs create http <DEPOLY NAME2> --schedule="0 2 \* \* \*" --uri="<CLOUD FUNCTIONS ENTRY POINT URI>" --headers Content-Type=application/json --time-zone=Asia/Tokyo --message-body='{}'`
