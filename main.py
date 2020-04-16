@@ -1,10 +1,10 @@
 # import faulthandler
 # faulthandler.enable()
 from twitterscraper import query_tweets
-from datetime import datetime, timedelta
+from datetime import datetime, date, timedelta
 import urllib.parse
-# import os
-# os.environ['no_proxy'] = '*'
+import os
+os.environ['no_proxy'] = '*'
 import gspread
 import settings
 from oauth2client.service_account import ServiceAccountCredentials
@@ -26,8 +26,7 @@ def daterange(start_date, end_date):
         yield start_date + timedelta(n), start_date + timedelta(n + 1)
 
 
-def egosearch(request):
-    request_json = request.get_json()
+def egosearch(request_json):
     if 'start_date' in request_json and 'end_date' in request_json:
         start_date = request_json['start_date']
         end_date = request_json['end_date']
@@ -39,7 +38,7 @@ def egosearch(request):
         end_date = datetime.today()
 
     for start, end in daterange(start_date, end_date):
-        insert_row = (start_date - since_date).days + 2
+        insert_row = (start - since_date).days + 2
         worksheet.update_cell(insert_row, 1, str(start.date()))
         insert_column = 2
         for name, query in settings.EGOSEARCH_QUERIES.items():
@@ -49,6 +48,13 @@ def egosearch(request):
             insert_column += 1
 
 
+def run(request):
+    request_json = request.get_json()
+    egosearch(request_json)
+
+
 if __name__ == "__main__":
-    egosearch()
+    start_date = datetime(2020, 2, 1, 0, 0, 0)
+    end_date = datetime(2020, 4, 16, 0, 0, 0)
+    egosearch({'start_date': start_date, 'end_date': end_date})
     # main(datetime.today() - timedelta(1), datetime.today())
