@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6541be1db02dab02801f3da2bbf43d17d3b54f5253e8d5a8a132571b01493d86"
+            "sha256": "08ff46b4c86520f9a2de38fdf3bdb14ca5cbf0383b6ee2c2f66854661d819739"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -259,11 +259,8 @@
             "version": "==2.0"
         },
         "twitterscraper": {
-            "hashes": [
-                "sha256:e4c1ef4c11a581279ef7a27b36e82691bd936a9f8bcc7cfbce536582f447726d"
-            ],
-            "index": "pypi",
-            "version": "==1.4.0"
+            "git": "https://github.com/taspinar/twitterscraper.git",
+            "ref": "ccfcc21ca5c3e56fc538cb95a445b6d7440f7558"
         },
         "urllib3": {
             "hashes": [
